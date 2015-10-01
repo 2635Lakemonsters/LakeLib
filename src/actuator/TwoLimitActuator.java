@@ -3,13 +3,18 @@ package actuator;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
 
+/**
+ * A class that implements a two limit actuator. Examples of this include arms that sweep within a specific range,
+ * and are stopped by one of two limit switches. If a limit is hit, magnitudes in the direction of that switch will be ignored.
+ * @author Tristan
+ *
+ */
 public class TwoLimitActuator implements IActuator<Double>
 {
 	SpeedController actuator;
 	DigitalInput upperLimit;
 	DigitalInput lowerLimit;
-	public TwoLimitActuator(SpeedController actuator, DigitalInput upperLimit,
-			DigitalInput lowerLimit)
+	public TwoLimitActuator(SpeedController actuator, DigitalInput upperLimit, DigitalInput lowerLimit)
 	{
 		super();
 		this.actuator = actuator;

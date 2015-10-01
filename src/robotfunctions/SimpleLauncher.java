@@ -1,8 +1,13 @@
-package gametool;
+package robotfunctions;
 
 import actuator.IActuator;
 
-public class SimpleLauncher extends Launcher
+/**
+ * A launcher with a means of adjusting angle and accelerating objects.
+ * @author Tristan
+ *
+ */
+public class SimpleLauncher extends BaseLauncher
 {
 	IActuator<Double> accelerator;
 	IActuator<Double> elevator;
