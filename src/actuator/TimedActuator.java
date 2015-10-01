@@ -5,6 +5,7 @@ import java.util.Timer;
 /**
  * An actuator that will actuate in a specific amount of time. Examples include: <br>
  * A winch that pulls something at a set rate <br>
+ * A car that drives at a set rate in two directions 
  *  
  * @author Tristan Thompson
  *

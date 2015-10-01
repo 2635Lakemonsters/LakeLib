@@ -1,6 +1,7 @@
 package robotfunctions;
 
 import actuator.IActuator;
+import actuator.IDrive;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
@@ -10,16 +11,16 @@ import edu.wpi.first.wpilibj.RobotDrive;
  */
 public class HDrive 
 {
-	RobotDrive drive;
+	IDrive drive;
 	IActuator<Double> middleWheel;
-	public HDrive(RobotDrive drive, IActuator<Double> middleWheel) {
+	public HDrive(IDrive drive, IActuator<Double> middleWheel) {
 		super();
 		this.drive = drive;
 		this.middleWheel = middleWheel;
 	}
 	public void drive(double X, double Y, double rotation)
 	{
-		drive.arcadeDrive(Y, rotation);
+		drive.drive(X, Y, rotation);
 		middleWheel.actuate(X);
 	}
 }

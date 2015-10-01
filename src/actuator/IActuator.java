@@ -6,7 +6,8 @@ package actuator;
  * One motor <br>
  * Two motors <br>
  * A motor with closed loop control <br>
- * A grabber that is controlled by a motor that pulls a string, and is stopped by a combination of an encoder and limit switch
+ * A grabber that is controlled by a motor that pulls a string, and is stopped by a combination of an encoder and limit switch <br>
+ * A car engine
  * @author Tristan
  *
  * @param <T> Magnitude input type
