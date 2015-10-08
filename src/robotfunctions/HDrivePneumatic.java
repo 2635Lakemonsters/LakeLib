@@ -4,6 +4,11 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import actuator.IActuator;
 import actuator.IDrive;
 
+/**
+ * Like HDrive, but uses a pneumatic piston to depress the middle wheel.
+ * @author localuser
+ *
+ */
 public class HDrivePneumatic extends HDrive
 {
 	IActuator<Boolean> piston;
