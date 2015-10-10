@@ -12,9 +12,9 @@ public class ArcadeDrive implements IDrive
 		this.drive = drive;
 	}
 	@Override
-	public boolean drive(double X, double Y, double rotation)
+	public boolean drive(double X, double Y)
 	{
-		drive.arcadeDrive(Y, rotation);
+		drive.arcadeDrive(Y, X);
 		return true;
 	}
 

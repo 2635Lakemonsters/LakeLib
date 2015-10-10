@@ -12,10 +12,9 @@ public class TankDrive implements IDrive
 		this.drive = drive;
 	}
 	@Override
-	public boolean drive(double X, double Y, double rotation)
+	public boolean drive(double X, double Y)
 	{
 		drive.tankDrive(X,Y);
-		// TODO Auto-generated method stub
 		return true;
 	}
 

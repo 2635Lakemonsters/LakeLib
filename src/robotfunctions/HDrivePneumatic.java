@@ -14,11 +14,15 @@ public class HDrivePneumatic extends HDrive
 	IActuator<Boolean> piston;
 	double depressionTolerance;
 	public HDrivePneumatic(IDrive drive, IActuator<Double> middleWheel,
-			IActuator<Boolean> piston, double depressionTolerance ) {
+			IActuator<Boolean> piston, double depressionTolerance ) 
+	{
 		super(drive, middleWheel);
 		this.piston = piston;
 		this.depressionTolerance = depressionTolerance;
 	}
+	/**
+	 * Depresses the middle wheel if X goes above depressionTolerance. 
+	 */
 	@Override
 	public void drive(double X, double Y, double rotation)
 	{
@@ -26,13 +30,13 @@ public class HDrivePneumatic extends HDrive
 		{
 			piston.actuate(true);
 			middleWheel.actuate(X);
-			drive.drive(0, 0, 0);
 		}
 		else
 		{
 			piston.actuate(false);
 			middleWheel.actuate(0.0);
-			drive.drive(Y, X, 0);
 		}
+		drive.drive(rotation, Y);
+
 	}
 }

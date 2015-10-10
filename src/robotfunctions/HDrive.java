@@ -18,9 +18,12 @@ public class HDrive
 		this.drive = drive;
 		this.middleWheel = middleWheel;
 	}
+	/**
+	 * Drive the drive and actuates the middle wheel.
+	 */
 	public void drive(double X, double Y, double rotation)
 	{
-		drive.drive(X, Y, rotation);
+		drive.drive(rotation, Y);
 		middleWheel.actuate(X);
 	}
 }

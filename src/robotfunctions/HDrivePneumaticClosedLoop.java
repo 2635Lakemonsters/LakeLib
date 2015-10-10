@@ -12,16 +12,19 @@ import actuator.IDrive;
  */
 public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 {
-
 	public PIDController pid;
 	public ISensor<Double> setPointGet;
 	public HDrivePneumaticClosedLoop(IDrive drive,
-			IActuator<Double> middleWheel, IActuator<Boolean> piston, ISensor<Double> setPointGetter,
+			IActuator<Double> middleWheel, IActuator<Boolean> piston, ISensor<Double> setPointGetter, PIDController pid,
 			double depressionTolerance)
 	{
 		super(drive, middleWheel, piston, depressionTolerance);
 		this.setPointGet = setPointGetter;
+		this.pid = pid;
 	}
+	/**
+	 * Depresses the middle wheel when X goes above a certain tolerance. When the middle wheel is depressed the drive is driven by pid rather than the IDrive implementation.
+	 */
 	@Override
 	public void drive(double X, double Y, double rotation)
 	{
@@ -38,7 +41,7 @@ public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 		{
 			piston.actuate(false);
 			middleWheel.actuate(0.0);
-			drive.drive(Y, X, 0);
+			drive.drive(rotation, Y);
 		}
 
 	}

@@ -17,5 +17,5 @@ package actuator;
  */
 public interface IDrive 
 {
-	public boolean drive(double X, double Y, double rotation);
+	public boolean drive(double X, double Y);
 }
