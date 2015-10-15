@@ -40,6 +40,7 @@ public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 		}
 		else
 		{
+			pid.disable();
 			piston.actuate(false);
 			middleWheel.actuate(0.0);
 			drive.drive(rotation, Y);
