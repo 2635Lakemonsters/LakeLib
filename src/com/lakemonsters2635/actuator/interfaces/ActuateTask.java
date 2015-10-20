@@ -13,8 +13,8 @@ public class ActuateTask<T> extends BaseRobotTask
 	@Override
 	public void run() 
 	{
-		actuator.actuate(magnitude);
 		super.run();
+		actuator.actuate(magnitude);
 	}
 	
 }

@@ -15,8 +15,19 @@ package com.lakemonsters2635.actuator.interfaces;
  * @author Tristan Thompson
  *
  */
-public interface IDrive 
+public abstract class IDrive
 {
-	public boolean drive(double X, double Y);
-	
+	public abstract boolean drive(double X, double Y);
+	/**
+	 * Prints X and Y. May be overloaded to test actuators or print more sensor values
+	 * @param X
+	 * @param Y
+	 * @return
+	 */
+	public boolean test(double X, double Y)
+	{
+		System.out.println("X: " + X);
+		System.out.println("Y: " + Y);	
+		return true;
+	}
 }

@@ -4,7 +4,7 @@ import com.lakemonsters2635.actuator.interfaces.IDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 
-public class ArcadeDrive implements IDrive
+public class ArcadeDrive extends IDrive
 {
 
 	RobotDrive drive;

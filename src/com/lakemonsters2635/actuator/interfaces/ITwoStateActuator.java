@@ -9,8 +9,18 @@ package com.lakemonsters2635.actuator.interfaces;
  *
  * @param <T>
  */
-public interface ITwoStateActuator<T>
+public abstract class ITwoStateActuator<T>
 {
-	public boolean actuateForward(T magnitude);
-	public boolean actuateBackwards(T magnitude);
+	public abstract boolean actuateForward(T magnitude);
+	public abstract boolean actuateBackwards(T magnitude);
+	public boolean testForward(T magnitude)
+	{
+		System.out.println("magnitude: " + magnitude);
+		return true;
+	}
+	public boolean testBackwards(T magnitude)
+	{
+		System.out.println("magnitude:" + magnitude);
+		return true;
+	}
 }

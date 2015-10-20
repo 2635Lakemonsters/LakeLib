@@ -1,24 +1,23 @@
 package com.lakemonsters2635.util;
 
-public class OneShot<T>
+public class OneShot<T> 
 {
-	T lowState;
-	T previousState;
-	public OneShot(T lowState)
+	T previousValue;
+	T lowValue;
+	public OneShot(T lowValue)
 	{
-		this.lowState = lowState;
+		this.lowValue = lowValue;
+		this.previousValue = lowValue;
 	}
-	public T oneShot(T currentState)
+	public T oneShot(T currentValue)
 	{
-		if(previousState == null)
+		//If T is Integer, Double, etc., .equals will compare by value, not by object
+		if(!currentValue.equals(previousValue))
 		{
-			previousState = currentState;
-			return currentState;
+			System.out.println("Hit: " + currentValue + "Previous Value: " + previousValue);
+			previousValue = currentValue;
+			return currentValue;
 		}
-		if(previousState == currentState)
-		{
-			return lowState;
-		}
-		return currentState;
+		return lowValue;
 	}
 }

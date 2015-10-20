@@ -4,7 +4,7 @@ import com.lakemonsters2635.actuator.interfaces.IDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 
-public class TankDrive implements IDrive
+public class TankDrive extends IDrive
 {
 
 	RobotDrive drive;
