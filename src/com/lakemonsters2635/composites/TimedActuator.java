@@ -1,6 +1,9 @@
-package com.lakemonsters2635.actuator.interfaces;
+package com.lakemonsters2635.composites;
 
 import java.util.Timer;
+
+import com.lakemonsters2635.actuator.interfaces.ActuateTask;
+import com.lakemonsters2635.actuator.interfaces.IActuator;
 
 /**
  * An actuator that will actuate in a specific amount of time. Examples include: <br>

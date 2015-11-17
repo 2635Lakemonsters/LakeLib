@@ -2,7 +2,7 @@ package com.lakemonsters2635.composites;
 
 import com.lakemonsters2635.actuator.interfaces.IActuator;
 import com.lakemonsters2635.actuator.interfaces.IDrive;
-import com.lakemonsters2635.sensor.ISensor;
+import com.lakemonsters2635.sensor.interfaces.ISensor;
 
 import edu.wpi.first.wpilibj.PIDController;
 
@@ -15,6 +15,15 @@ public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 {
 	public PIDController pid;
 	public ISensor<Double> setPointGet;
+	/**
+	 * 
+	 * @param drive Drive module.
+	 * @param middleWheel The turny part of the middle wheel.
+	 * @param piston The thing that pushes down the middle wheel.
+	 * @param setPointGetter Thing to get the set point. Value is sent to the PIDController. Sensor may be shared with the PIDController.
+	 * @param pid The PIDController. Is given a set point by the setPointGetter.
+	 * @param depressionTolerance Determines the value at which the middle wheel will be depressed. 
+	 */
 	public HDrivePneumaticClosedLoop(IDrive drive,
 			IActuator<Double> middleWheel, IActuator<Boolean> piston, ISensor<Double> setPointGetter, PIDController pid,
 			double depressionTolerance)

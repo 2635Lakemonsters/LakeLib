@@ -12,6 +12,11 @@ public class HDrive
 {
 	IDrive drive;
 	IActuator<Double> middleWheel;
+	/**
+	 * 
+	 * @param drive Drive module.
+	 * @param middleWheel Middle wheel module.
+	 */
 	public HDrive(IDrive drive, IActuator<Double> middleWheel) 
 	{
 		super();

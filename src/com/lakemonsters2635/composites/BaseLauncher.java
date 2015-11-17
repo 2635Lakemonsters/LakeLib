@@ -6,5 +6,9 @@ package com.lakemonsters2635.composites;
  */
 public abstract class BaseLauncher
 {
+	/**
+	 * Make your cannon fire modified by a magnitude.
+	 * @param magnitude
+	 */
 	public abstract void fire(double magnitude);
 }

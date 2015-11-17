@@ -12,6 +12,13 @@ public class HDrivePneumatic extends HDrive
 {
 	IActuator<Boolean> piston;
 	double depressionTolerance;
+	/**
+	 * 
+	 * @param drive The drive module.
+	 * @param middleWheel Turny part of middle wheel.
+	 * @param piston Depressor of the middle wheel.
+	 * @param depressionTolerance Determines what value will depress the middle wheel.
+	 */
 	public HDrivePneumatic(IDrive drive, IActuator<Double> middleWheel,
 			IActuator<Boolean> piston, double depressionTolerance ) 
 	{

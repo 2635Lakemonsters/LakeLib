@@ -3,6 +3,11 @@ package com.lakemonsters2635.actuator.modules;
 import com.lakemonsters2635.actuator.interfaces.IDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+/**
+ * Arcade drive drive module. Drives a robot drive using its arcadeDrive method.
+ * @author Tristan Thompson
+ *
+ */
 
 public class ArcadeDrive extends IDrive
 {
@@ -14,6 +19,7 @@ public class ArcadeDrive extends IDrive
 		this.drive = drive;
 	}
 	@Override
+
 	public boolean drive(double X, double Y)
 	{
 		drive.arcadeDrive(Y, X);
