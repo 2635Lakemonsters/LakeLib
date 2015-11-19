@@ -12,7 +12,7 @@ package com.lakemonsters2635.actuator.interfaces;
  *
  * @param <T> Magnitude input type
  */
-public abstract class IActuator<T>
+public abstract class BaseActuator<T>
 {
 	/**
 	 * Define how your actuator actuates. 

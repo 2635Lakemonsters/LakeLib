@@ -1,6 +1,6 @@
 package com.lakemonsters2635.actuator.modules;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 import edu.wpi.first.wpilibj.SpeedController;
 
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.SpeedController;
  * @author Tristan
  *
  */
-public class SimpleActuator extends IActuator<Double>
+public class SimpleActuator extends BaseActuator<Double>
 {
 	SpeedController actuator;
 	

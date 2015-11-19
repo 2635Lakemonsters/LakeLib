@@ -1,6 +1,6 @@
 package com.lakemonsters2635.actuator.modules;
 
-import com.lakemonsters2635.actuator.interfaces.IDrive;
+import com.lakemonsters2635.actuator.interfaces.BaseDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 /**
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
  *
  */
 
-public class ArcadeDrive extends IDrive
+public class ArcadeDrive extends BaseDrive
 {
 
 	RobotDrive drive;

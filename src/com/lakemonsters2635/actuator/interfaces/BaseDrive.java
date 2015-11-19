@@ -15,7 +15,7 @@ package com.lakemonsters2635.actuator.interfaces;
  * @author Tristan Thompson
  *
  */
-public abstract class IDrive
+public abstract class BaseDrive
 {
 	public abstract boolean drive(double X, double Y);
 	/**

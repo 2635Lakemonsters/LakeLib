@@ -1,6 +1,6 @@
 package com.lakemonsters2635.actuator.modules;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 import edu.wpi.first.wpilibj.PIDController;
 
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.PIDController;
  * @author Tristan
  *
  */
-public class ClosedLoopActuator extends IActuator<Double>
+public class ClosedLoopActuator extends BaseActuator<Double>
 {
 	PIDController actuator;
 	public ClosedLoopActuator(PIDController actuator)

@@ -1,6 +1,6 @@
 package com.lakemonsters2635.composites;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 /**
  * A rotary cannon. Rotates an indexer at a specified magnitude after firing.
@@ -9,15 +9,15 @@ import com.lakemonsters2635.actuator.interfaces.IActuator;
  */
 public class IndexingCannon extends SimpleLauncher
 {
-	IActuator<Double> rotator;
+	BaseActuator<Double> rotator;
 	/**
 	 * 
 	 * @param accelerator Thing that makes the thing go fast.
 	 * @param elevator Thing that moves the launcher.
 	 * @param rotator Thing that rotates the launcher.
 	 */
-	public IndexingCannon(IActuator<Double> accelerator,
-			IActuator<Double> elevator, IActuator<Double> rotator)
+	public IndexingCannon(BaseActuator<Double> accelerator,
+			BaseActuator<Double> elevator, BaseActuator<Double> rotator)
 	{
 		super(accelerator, elevator);
 		this.rotator = rotator;

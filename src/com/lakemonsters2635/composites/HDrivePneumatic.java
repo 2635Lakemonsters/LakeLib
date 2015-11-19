@@ -1,7 +1,7 @@
 package com.lakemonsters2635.composites;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
-import com.lakemonsters2635.actuator.interfaces.IDrive;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseDrive;
 
 /**
  * Like HDrive, but uses a pneumatic piston to depress the middle wheel.
@@ -10,7 +10,7 @@ import com.lakemonsters2635.actuator.interfaces.IDrive;
  */
 public class HDrivePneumatic extends HDrive
 {
-	IActuator<Boolean> piston;
+	BaseActuator<Boolean> piston;
 	double depressionTolerance;
 	/**
 	 * 
@@ -19,8 +19,8 @@ public class HDrivePneumatic extends HDrive
 	 * @param piston Depressor of the middle wheel.
 	 * @param depressionTolerance Determines what value will depress the middle wheel.
 	 */
-	public HDrivePneumatic(IDrive drive, IActuator<Double> middleWheel,
-			IActuator<Boolean> piston, double depressionTolerance ) 
+	public HDrivePneumatic(BaseDrive drive, BaseActuator<Double> middleWheel,
+			BaseActuator<Boolean> piston, double depressionTolerance ) 
 	{
 		super(drive, middleWheel);
 		this.piston = piston;

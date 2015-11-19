@@ -1,6 +1,6 @@
 package com.lakemonsters2635.actuator.modules;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
  * @author Tristan
  *
  */
-public class SimpleDoubleSolenoid extends IActuator<Boolean>
+public class SimpleDoubleSolenoid extends BaseActuator<Boolean>
 {	
 	DoubleSolenoid solenoid;
 	

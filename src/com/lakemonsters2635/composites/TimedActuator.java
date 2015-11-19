@@ -3,7 +3,7 @@ package com.lakemonsters2635.composites;
 import java.util.Timer;
 
 import com.lakemonsters2635.actuator.interfaces.ActuateTask;
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 /**
  * An actuator that will actuate in a specific amount of time. Examples include: <br>
@@ -18,9 +18,9 @@ public class TimedActuator<T>
 {
 	Timer timer;
 	boolean timerSet;
-	IActuator<T> actuator;
+	BaseActuator<T> actuator;
 	ActuateTask<T> task;
-	public TimedActuator(Timer timer, IActuator<T> actuator,
+	public TimedActuator(Timer timer, BaseActuator<T> actuator,
 			ActuateTask<T> task) {
 		super();
 		this.timer = timer;

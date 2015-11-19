@@ -3,9 +3,9 @@ package com.lakemonsters2635.actuator.interfaces;
 
 public class ActuateTask<T> extends BaseRobotTask
 {
-	IActuator<T> actuator;
+	BaseActuator<T> actuator;
 	T magnitude;
-	public ActuateTask(IActuator<T> actuator, T magnitude) {
+	public ActuateTask(BaseActuator<T> actuator, T magnitude) {
 		super();
 		this.actuator = actuator;
 		this.magnitude = magnitude;

@@ -9,7 +9,7 @@ package com.lakemonsters2635.actuator.interfaces;
  *
  * @param <T>
  */
-public abstract class ITwoStateActuator<T>
+public abstract class BaseTwoStateActuator<T>
 {
 	public abstract boolean actuateForward(T magnitude);
 	public abstract boolean actuateBackwards(T magnitude);

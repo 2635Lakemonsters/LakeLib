@@ -1,7 +1,7 @@
 package com.lakemonsters2635.composites;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
-import com.lakemonsters2635.actuator.interfaces.IDrive;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseDrive;
 
 /**
  * A simple HDrive class. Basically a simple drive base with an added middle wheel.
@@ -10,14 +10,14 @@ import com.lakemonsters2635.actuator.interfaces.IDrive;
  */
 public class HDrive 
 {
-	IDrive drive;
-	IActuator<Double> middleWheel;
+	BaseDrive drive;
+	BaseActuator<Double> middleWheel;
 	/**
 	 * 
 	 * @param drive Drive module.
 	 * @param middleWheel Middle wheel module.
 	 */
-	public HDrive(IDrive drive, IActuator<Double> middleWheel) 
+	public HDrive(BaseDrive drive, BaseActuator<Double> middleWheel) 
 	{
 		super();
 		this.drive = drive;

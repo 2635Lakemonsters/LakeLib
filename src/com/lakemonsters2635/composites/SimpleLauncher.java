@@ -1,6 +1,6 @@
 package com.lakemonsters2635.composites;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 /**
  * A launcher with a means of adjusting angle and accelerating objects.
@@ -14,15 +14,15 @@ public class SimpleLauncher extends BaseLauncher
 	 * @param accelerator The thing that makes the thing go fast.
 	 * @param elevator Moves the launcher up and down.
 	 */
-	public SimpleLauncher(IActuator<Double> accelerator,
-			IActuator<Double> elevator)
+	public SimpleLauncher(BaseActuator<Double> accelerator,
+			BaseActuator<Double> elevator)
 	{
 		super();
 		this.accelerator = accelerator;
 		this.elevator = elevator;
 	}
-	IActuator<Double> accelerator;
-	IActuator<Double> elevator;
+	BaseActuator<Double> accelerator;
+	BaseActuator<Double> elevator;
 	/**
 	 * Actuate the accelerator supplying magnitude.
 	 */

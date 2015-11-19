@@ -1,6 +1,6 @@
 package com.lakemonsters2635.actuator.modules;
 
-import com.lakemonsters2635.actuator.interfaces.IActuator;
+import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.SpeedController;
  * @author Tristan
  *
  */
-public class TwoLimitActuator extends IActuator<Double>
+public class TwoLimitActuator extends BaseActuator<Double>
 {
 	SpeedController actuator;
 	DigitalInput upperLimit;
