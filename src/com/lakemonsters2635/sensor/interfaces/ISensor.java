@@ -8,13 +8,13 @@ package com.lakemonsters2635.sensor.interfaces;
  * A sensor that detects cars
  * @author Tristan
  *
- * @param <T> Type of sensed value.
+ * @param <OutputType> Type of sensed value.
  */
-public interface ISensor<T>
+public interface ISensor<OutputType> 
 {
 	/**
 	 * 
 	 * @return Sensed value
 	 */
-	public T sense();
+	public OutputType sense();
 }

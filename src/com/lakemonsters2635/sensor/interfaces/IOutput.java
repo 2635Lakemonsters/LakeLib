@@ -18,5 +18,9 @@ public interface IOutput<OutputType, InputType>
 	 * @param magnitude Value to modify output
 	 * @return Modified output
 	 */
-	OutputType getOutput(InputType magnitude);
+	 OutputType getOutput(InputType magnitude);
+	/**
+	 * 
+	 */
+	
 }
