@@ -8,7 +8,7 @@ import com.lakemonsters2635.actuator.interfaces.BaseActuator;
  *
  * @param <InputType>
  */
-public class DummyActuator<InputType> extends BaseActuator<InputType>
+public class ActuatorDummy<InputType> extends BaseActuator<InputType>
 {
 
 	@Override

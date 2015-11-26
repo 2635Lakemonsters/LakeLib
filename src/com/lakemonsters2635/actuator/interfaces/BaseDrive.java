@@ -18,6 +18,7 @@ package com.lakemonsters2635.actuator.interfaces;
 public abstract class BaseDrive
 {
 	public abstract boolean drive(double X, double Y);
+	public abstract boolean drive(double X, double Y, double rotation);
 	/**
 	 * Prints X and Y. May be overloaded to test actuators or print more sensor values
 	 * @param X

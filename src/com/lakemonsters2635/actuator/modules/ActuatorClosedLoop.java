@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.PIDController;
  * @author Tristan
  *
  */
-public class ClosedLoopActuator extends BaseActuator<Double>
+public class ActuatorClosedLoop extends BaseActuator<Double>
 {
 	PIDController actuator;
-	public ClosedLoopActuator(PIDController actuator)
+	public ActuatorClosedLoop(PIDController actuator)
 	{
 		super();
 		this.actuator = actuator;

@@ -2,10 +2,10 @@ package com.lakemonsters2635.sensor.modules;
 
 import com.lakemonsters2635.sensor.interfaces.IOutput;
 
-public class ScalerOutput implements IOutput<Double, Double>
+public class OutputScaler implements IOutput<Double, Double>
 {
 	double scaler;
-	public ScalerOutput(double scaler)
+	public OutputScaler(double scaler)
 	{
 		this.scaler = scaler;
 	}

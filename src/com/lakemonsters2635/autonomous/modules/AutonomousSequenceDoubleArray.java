@@ -2,7 +2,7 @@ package com.lakemonsters2635.autonomous.modules;
 
 import com.lakemonsters2635.autonomous.interfaces.IAutonomousSequence;
 
-public class ArrayDoubleAutonomousSequence implements IAutonomousSequence<Double, Integer>
+public class AutonomousSequenceDoubleArray implements IAutonomousSequence<Double, Integer>
 {
 	Integer index = -1;
 	Double[] values;

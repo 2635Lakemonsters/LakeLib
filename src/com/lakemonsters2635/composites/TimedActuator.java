@@ -16,10 +16,10 @@ import com.lakemonsters2635.actuator.interfaces.BaseActuator;
  */
 public class TimedActuator<T>
 {
-	Timer timer;
+	public Timer timer;
 	boolean timerSet;
-	BaseActuator<T> actuator;
-	ActuateTask<T> task;
+	public BaseActuator<T> actuator;
+	public ActuateTask<T> task;
 	public TimedActuator(Timer timer, BaseActuator<T> actuator,
 			ActuateTask<T> task) {
 		super();

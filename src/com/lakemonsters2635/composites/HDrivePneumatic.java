@@ -10,8 +10,8 @@ import com.lakemonsters2635.actuator.interfaces.BaseDrive;
  */
 public class HDrivePneumatic extends HDrive
 {
-	BaseActuator<Boolean> piston;
-	double depressionTolerance;
+	public BaseActuator<Boolean> piston;
+	public double depressionTolerance;
 	/**
 	 * 
 	 * @param drive The drive module.

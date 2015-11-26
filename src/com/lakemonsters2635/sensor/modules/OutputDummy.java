@@ -7,10 +7,10 @@ import com.lakemonsters2635.sensor.interfaces.IOutput;
  * @author Tristan Thompson
  *
  */
-public class DummyOutput<OutputType, InputType> implements IOutput<OutputType, InputType>
+public class OutputDummy<OutputType, InputType> implements IOutput<OutputType, InputType>
 {
 	public OutputType constant;
-	public DummyOutput(OutputType constant)
+	public OutputDummy(OutputType constant)
 	{
 		this.constant = constant;
 	}

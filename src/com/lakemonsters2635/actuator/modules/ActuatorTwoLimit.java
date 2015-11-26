@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj.SpeedController;
  * @author Tristan
  *
  */
-public class TwoLimitActuator extends BaseActuator<Double>
+public class ActuatorTwoLimit extends BaseActuator<Double>
 {
 	SpeedController actuator;
 	DigitalInput upperLimit;
 	DigitalInput lowerLimit;
-	public TwoLimitActuator(SpeedController actuator, DigitalInput upperLimit, DigitalInput lowerLimit)
+	public ActuatorTwoLimit(SpeedController actuator, DigitalInput upperLimit, DigitalInput lowerLimit)
 	{
 		super();
 		this.actuator = actuator;

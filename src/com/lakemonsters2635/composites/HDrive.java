@@ -10,8 +10,8 @@ import com.lakemonsters2635.actuator.interfaces.BaseDrive;
  */
 public class HDrive 
 {
-	BaseDrive drive;
-	BaseActuator<Double> middleWheel;
+	public BaseDrive drive;
+	public BaseActuator<Double> middleWheel;
 	/**
 	 * 
 	 * @param drive Drive module.

@@ -7,6 +7,7 @@ package com.lakemonsters2635.autonomous.statemachine;
  */
 public class StateMachine
 {
+	
 	IState state;
 	IState finishedState;
 	/**
@@ -34,4 +35,5 @@ public class StateMachine
 		
 		return false;
 	}
+	
 }

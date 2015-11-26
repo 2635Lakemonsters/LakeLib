@@ -7,12 +7,12 @@ import com.lakemonsters2635.sensor.interfaces.IOutput;
  * @author Tristan Thompson
  *
  */
-public class OneShotOutput implements IOutput<Object, Object>
+public class OutputOneShot implements IOutput<Object, Object>
 {
 
 	Object previousValue;
 	Object lowValue;
-	public OneShotOutput(Object lowValue)
+	public OutputOneShot(Object lowValue)
 	{
 		this.lowValue = lowValue;
 		this.previousValue = lowValue;

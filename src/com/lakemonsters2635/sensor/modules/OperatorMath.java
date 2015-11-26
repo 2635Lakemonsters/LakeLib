@@ -7,7 +7,7 @@ import com.lakemonsters2635.sensor.interfaces.IOperator;
  * @author Tristan Thompson
  *
  */
-public class MathOperator implements IOperator<Double, Double>
+public class OperatorMath implements IOperator<Double, Double>
 {
 	public enum Operator
 	{
@@ -18,7 +18,7 @@ public class MathOperator implements IOperator<Double, Double>
 		EXPONENT,
 	}
 	Operator operator;
-	public MathOperator(Operator operator)
+	public OperatorMath(Operator operator)
 	{
 		this.operator = operator;
 	}
@@ -38,7 +38,7 @@ public class MathOperator implements IOperator<Double, Double>
 		case EXPONENT:
 			return Math.pow(input, modifier);
 		case MULTIPLY:
-			return Math.pow(input, modifier);
+			return input * modifier;
 		case SUBTRACT:
 			return input - modifier;
 		default:

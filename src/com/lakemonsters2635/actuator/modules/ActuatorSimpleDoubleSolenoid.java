@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
  * @author Tristan
  *
  */
-public class SimpleDoubleSolenoid extends BaseActuator<Boolean>
+public class ActuatorSimpleDoubleSolenoid extends BaseActuator<Boolean>
 {	
 	DoubleSolenoid solenoid;
 	
-	public SimpleDoubleSolenoid(DoubleSolenoid solenoid)
+	public ActuatorSimpleDoubleSolenoid(DoubleSolenoid solenoid)
 	{
 		super();
 		this.solenoid = solenoid;

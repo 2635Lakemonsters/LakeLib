@@ -9,7 +9,7 @@ import com.lakemonsters2635.actuator.interfaces.BaseActuator;
  */
 public class IndexingCannon extends SimpleLauncher
 {
-	BaseActuator<Double> rotator;
+	public BaseActuator<Double> rotator;
 	/**
 	 * 
 	 * @param accelerator Thing that makes the thing go fast.

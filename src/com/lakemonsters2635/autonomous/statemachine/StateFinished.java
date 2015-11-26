@@ -5,7 +5,7 @@ package com.lakemonsters2635.autonomous.statemachine;
  * @author Tristan Thompson
  *
  */
-public class FinishedState implements IState
+public class StateFinished implements IState
 {
 
 	@Override

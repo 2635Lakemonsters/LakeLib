@@ -9,6 +9,8 @@ import com.lakemonsters2635.actuator.interfaces.BaseActuator;
  */
 public class SimpleLauncher extends BaseLauncher
 {
+	public BaseActuator<Double> accelerator;
+	public BaseActuator<Double> elevator;
 	/**
 	 * 
 	 * @param accelerator The thing that makes the thing go fast.
@@ -21,8 +23,7 @@ public class SimpleLauncher extends BaseLauncher
 		this.accelerator = accelerator;
 		this.elevator = elevator;
 	}
-	BaseActuator<Double> accelerator;
-	BaseActuator<Double> elevator;
+	
 	/**
 	 * Actuate the accelerator supplying magnitude.
 	 */

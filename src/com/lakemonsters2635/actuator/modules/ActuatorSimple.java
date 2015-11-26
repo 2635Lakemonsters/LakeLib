@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.SpeedController;
  * @author Tristan
  *
  */
-public class SimpleActuator extends BaseActuator<Double>
+public class ActuatorSimple extends BaseActuator<Double>
 {
 	SpeedController actuator;
 	
-	public SimpleActuator(SpeedController actuator)
+	public ActuatorSimple(SpeedController actuator)
 	{
 		super();
 		this.actuator = actuator;

@@ -2,10 +2,10 @@ package com.lakemonsters2635.sensor.modules;
 
 import com.lakemonsters2635.sensor.interfaces.ISensor;
 
-public class DummySensor<OutputType> implements ISensor<OutputType>
+public class SensorDummy<OutputType> implements ISensor<OutputType>
 {
 	OutputType constant;
-	public DummySensor(OutputType constant)
+	public SensorDummy(OutputType constant)
 	{
 		this.constant = constant;
 	}
