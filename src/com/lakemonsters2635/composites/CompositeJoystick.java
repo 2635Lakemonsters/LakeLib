@@ -20,7 +20,18 @@ public class CompositeJoystick
 	
 	HashMap<String, ISensor<Integer>> POVs;
 	HashMap<String, IOperator<Integer, Integer>> POVsTransform;
-	
+	public CompositeJoystick()
+	{
+		axes = new HashMap<String, ISensor<Double>>();
+		axesTransform = new HashMap<String, IOperator<Double,Double>>();
+		
+		buttons = new HashMap<String, ISensor<Boolean>>();
+		buttonsTransform = new HashMap<String, IOperator<Boolean,Boolean>>();
+		
+		POVs = new HashMap<String, ISensor<Integer>>();
+		POVsTransform = new HashMap<String, IOperator<Integer,Integer>>();
+		
+	}
 	/**
 	 * Add an axis to the joystick. Axes are defined as anything that can be sensed as a Double value.
 	 * 
