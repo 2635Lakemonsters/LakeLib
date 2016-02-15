@@ -3,7 +3,7 @@ package com.lakemonsters2635.composites;
 import java.util.HashMap;
 
 import com.lakemonsters2635.sensor.interfaces.IOperator;
-import com.lakemonsters2635.sensor.interfaces.ISensor;
+import com.lakemonsters2635.sensor.interfaces.BaseSensor;
 
 /**
  * A configurable joystick. Allows the user to build a joystick from a series of axes, buttons, and POVs. All of them may have transforms applied.
@@ -12,23 +12,23 @@ import com.lakemonsters2635.sensor.interfaces.ISensor;
  */
 public class CompositeJoystick
 {
-	HashMap<String, ISensor<Double>> axes;
+	HashMap<String, BaseSensor<Double>> axes;
 	HashMap<String, IOperator<Double, Double>> axesTransform;
 	
-	HashMap<String, ISensor<Boolean>> buttons;
+	HashMap<String, BaseSensor<Boolean>> buttons;
 	HashMap<String, IOperator<Boolean,Boolean>> buttonsTransform;
 	
-	HashMap<String, ISensor<Integer>> POVs;
+	HashMap<String, BaseSensor<Integer>> POVs;
 	HashMap<String, IOperator<Integer, Integer>> POVsTransform;
 	public CompositeJoystick()
 	{
-		axes = new HashMap<String, ISensor<Double>>();
+		axes = new HashMap<String, BaseSensor<Double>>();
 		axesTransform = new HashMap<String, IOperator<Double,Double>>();
 		
-		buttons = new HashMap<String, ISensor<Boolean>>();
+		buttons = new HashMap<String, BaseSensor<Boolean>>();
 		buttonsTransform = new HashMap<String, IOperator<Boolean,Boolean>>();
 		
-		POVs = new HashMap<String, ISensor<Integer>>();
+		POVs = new HashMap<String, BaseSensor<Integer>>();
 		POVsTransform = new HashMap<String, IOperator<Integer,Integer>>();
 		
 	}
@@ -39,12 +39,12 @@ public class CompositeJoystick
 	 * @param axisSensor Thing that senses the axis
 	 * @param axisTransform Operation applied on the sensed value
 	 */
-	public void addAxis(String axisName, ISensor<Double> axisSensor, IOperator<Double,Double> axisTransform)
+	public void addAxis(String axisName, BaseSensor<Double> axisSensor, IOperator<Double,Double> axisTransform)
 	{
 		axes.put(axisName, axisSensor);
 		axesTransform.put(axisName, axisTransform);
 	}
-	public void addAxis(String axisName, ISensor<Double> axisSensor)
+	public void addAxis(String axisName, BaseSensor<Double> axisSensor)
 	{
 		axes.put(axisName, axisSensor);
 		axesTransform.put(axisName, null);
@@ -56,12 +56,12 @@ public class CompositeJoystick
 	 * @param buttonSensor Thing that senses the button
 	 * @param buttonTransform Operation applied on the sensed value
 	 */
-	public void addButton(String buttonName, ISensor<Boolean> buttonSensor, IOperator<Boolean,Boolean> buttonTransform)
+	public void addButton(String buttonName, BaseSensor<Boolean> buttonSensor, IOperator<Boolean,Boolean> buttonTransform)
 	{
 		buttons.put(buttonName, buttonSensor);
 		buttonsTransform.put(buttonName, buttonTransform);
 	}
-	public void addButton(String buttonName, ISensor<Boolean> buttonSensor)
+	public void addButton(String buttonName, BaseSensor<Boolean> buttonSensor)
 	{
 		buttons.put(buttonName, buttonSensor);
 		axesTransform.put(buttonName, null);
@@ -74,12 +74,12 @@ public class CompositeJoystick
 	 * @param POVSensor Thing that senses the POV
 	 * @param POVTransform Operation applied on the sensed value
 	 */
-	public void addPOV(String POVName, ISensor<Integer> POVSensor, IOperator<Integer, Integer> POVTransform)
+	public void addPOV(String POVName, BaseSensor<Integer> POVSensor, IOperator<Integer, Integer> POVTransform)
 	{
 		POVs.put(POVName, POVSensor);
 		POVsTransform.put(POVName, POVTransform);
 	}
-	public void addPOV(String POVName, ISensor<Integer> POVSensor)
+	public void addPOV(String POVName, BaseSensor<Integer> POVSensor)
 	{
 		POVs.put(POVName, POVSensor);
 		POVsTransform.put(POVName, null);

@@ -2,7 +2,7 @@ package com.lakemonsters2635.composites;
 
 import com.lakemonsters2635.actuator.interfaces.BaseActuator;
 import com.lakemonsters2635.actuator.interfaces.BaseDrive;
-import com.lakemonsters2635.sensor.interfaces.ISensor;
+import com.lakemonsters2635.sensor.interfaces.BaseSensor;
 
 import edu.wpi.first.wpilibj.PIDController;
 
@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.PIDController;
 public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 {
 	public PIDController pid;
-	public ISensor<Double> setPointGet;
+	public BaseSensor<Double> setPointGet;
 	/**
 	 * 
 	 * @param drive Drive module.
@@ -25,7 +25,7 @@ public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 	 * @param depressionTolerance Determines the value at which the middle wheel will be depressed. 
 	 */
 	public HDrivePneumaticClosedLoop(BaseDrive drive,
-			BaseActuator<Double> middleWheel, BaseActuator<Boolean> piston, ISensor<Double> setPointGetter, PIDController pid,
+			BaseActuator<Double> middleWheel, BaseActuator<Boolean> piston, BaseSensor<Double> setPointGetter, PIDController pid,
 			double depressionTolerance)
 	{
 		super(drive, middleWheel, piston, depressionTolerance);

@@ -1,10 +1,11 @@
 package com.lakemonsters2635.sensor.modules;
 
-import com.lakemonsters2635.sensor.interfaces.ISensor;
+import com.lakemonsters2635.sensor.interfaces.BaseSensor;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PIDSourceType;
 
-public class SensorRawJoystickAxis implements ISensor<Double>
+public class SensorRawJoystickAxis extends BaseSensor<Double>
 {
 	int axis;
 	Joystick joystick;
@@ -18,6 +19,24 @@ public class SensorRawJoystickAxis implements ISensor<Double>
 	public Double sense()
 	{
 		return joystick.getRawAxis(axis);
+	}
+	@Override
+	public void setPIDSourceType(PIDSourceType pidSource)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public PIDSourceType getPIDSourceType()
+	{
+		// TODO Auto-generated method stub
+		return PIDSourceType.kDisplacement;
+	}
+	@Override
+	public double pidGet()
+	{
+		// TODO Auto-generated method stub
+		return sense();
 	}
 	
 }

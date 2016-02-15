@@ -1,6 +1,8 @@
 package com.lakemonsters2635.sensor.modules;
 
-import com.lakemonsters2635.sensor.interfaces.ISensor;
+import com.lakemonsters2635.sensor.interfaces.BaseSensor;
+
+import edu.wpi.first.wpilibj.PIDSourceType;
 /**
  * Converts a Double returning ISensor into a Boolean returning ISensor
  * <br><br>
@@ -11,16 +13,16 @@ import com.lakemonsters2635.sensor.interfaces.ISensor;
  * Deciding whether or not to display the "low fuel" light in a car
  * @author Tristan Thompson
  */
-public class SensorHitTest implements ISensor<Boolean>
+public class SensorHitTest extends BaseSensor<Boolean>
 {
 
-	ISensor<Double> sensor;
+	BaseSensor<Double> sensor;
 	Double upperLimit;
 	Double lowerLimit;
 	
 	
 	
-	public SensorHitTest(ISensor<Double> sensor, Double upperLimit,
+	public SensorHitTest(BaseSensor<Double> sensor, Double upperLimit,
 			Double lowerLimit)
 	{
 		super();
@@ -35,6 +37,30 @@ public class SensorHitTest implements ISensor<Boolean>
 	{
 		Double sensedValue = sensor.sense();		
 		return sensedValue <= upperLimit && sensedValue >= lowerLimit; 
+	}
+
+
+	@Override
+	public void setPIDSourceType(PIDSourceType pidSource)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public PIDSourceType getPIDSourceType()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public double pidGet()
+	{
+		// TODO Auto-generated method stub
+		return 0;
 	}
  
 }

@@ -1,5 +1,7 @@
 package com.lakemonsters2635.sensor.interfaces;
 
+import edu.wpi.first.wpilibj.PIDSource;
+
 /**
  * A simple interface for sensors. Implementation examples include: <br><br>
  * A gyroscope <br>
@@ -10,11 +12,11 @@ package com.lakemonsters2635.sensor.interfaces;
  *
  * @param <OutputType> Type of sensed value.
  */
-public interface ISensor<OutputType> 
+public abstract class BaseSensor<OutputType> implements PIDSource
 {
 	/**
 	 * 
 	 * @return Sensed value
 	 */
-	public OutputType sense();
+	public abstract OutputType sense();
 }
