@@ -1,5 +1,6 @@
 package com.lakemonsters2635.sensor.modules;
 
+import java.awt.Point;
 import java.util.Comparator;
 import java.util.Vector;
 
@@ -12,9 +13,13 @@ import com.ni.vision.NIVision.ShapeMode;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class OutputAngleFromImage implements IOutput <Double, NIVision.Image> {
+public class FindTargetAngleFromImage implements IOutput <NIVision.PointDouble, NIVision.Image>
+{
+	
 	double CAMERA_RESOLUTION_X;
+	double CAMERA_RESOLUTION_Y;
 	double VIEW_ANGLE;
+	double ASPECT_RATIO;
 	NIVision.Range HUE_RANGE; //= new NIVision.Range(0, 5);	//Default hue range for yellow tote
 	NIVision.Range SAT_RANGE; //= new NIVision.Range(0, 10);	//Default saturation range for yellow tote
 	NIVision.Range VAL_RANGE; //= new NIVision.Range(250, 255);	//Default value range for yellow tote
@@ -23,7 +28,7 @@ public class OutputAngleFromImage implements IOutput <Double, NIVision.Image> {
 	NIVision.ParticleFilterOptions2 filterOptions = new NIVision.ParticleFilterOptions2(0,0,1,1);
 	Image binaryImage;
 	
-	public OutputAngleFromImage(double CAMERA_RESOLUTION_X, double VIEW_ANGLE,
+	public FindTargetAngleFromImage(double CAMERA_RESOLUTION_X, double CAMERA_RESOLUTION_Y, double VIEW_ANGLE, double ASPECT_RATIO,
 			NIVision.Range hueRange, NIVision.Range saturationRange, NIVision.Range valueRange, double particleAreaMinimum)
 	{
 		super();
@@ -32,7 +37,9 @@ public class OutputAngleFromImage implements IOutput <Double, NIVision.Image> {
 		VAL_RANGE = valueRange;
 		AREA_MINIMUM = particleAreaMinimum;
 		this.CAMERA_RESOLUTION_X = CAMERA_RESOLUTION_X;
+		this.CAMERA_RESOLUTION_Y = CAMERA_RESOLUTION_Y;
 		this.VIEW_ANGLE = VIEW_ANGLE;
+		this.ASPECT_RATIO = ASPECT_RATIO;
 		criteria[0] = new NIVision.ParticleFilterCriteria2(NIVision.MeasurementType.MT_AREA_BY_IMAGE_AREA, AREA_MINIMUM, 100.0, 0, 0);
 		binaryImage = NIVision.imaqCreateImage(ImageType.IMAGE_U8, 0);
 
@@ -57,7 +64,7 @@ public class OutputAngleFromImage implements IOutput <Double, NIVision.Image> {
 	};
 
 		@Override
-	public Double getOutput(Image image) 
+	public NIVision.PointDouble getOutput(Image image) 
 	{
 		//Look at the color frame for colors that fit the range. Colors that fit the range will be transposed as a 1 to the binary frame.
 		NIVision.imaqColorThreshold(binaryImage, image, 255, ColorMode.HSV, HUE_RANGE, SAT_RANGE, VAL_RANGE);
@@ -67,7 +74,8 @@ public class OutputAngleFromImage implements IOutput <Double, NIVision.Image> {
         int numParticles = NIVision.imaqCountParticles(binaryImage, 1);        
 		if(numParticles > 0)
 		{
-			Vector<ParticleReport> particles = new Vector<ParticleReport>();
+			ParticleReport bestParticle = null;
+			//Vector<ParticleReport> particles = new Vector<ParticleReport>();
 			for(int particleIndex = 0; particleIndex < numParticles; particleIndex++)
 			{
 				ParticleReport par = new ParticleReport();
@@ -77,22 +85,24 @@ public class OutputAngleFromImage implements IOutput <Double, NIVision.Image> {
 				par.BoundingRectLeft = NIVision.imaqMeasureParticle(binaryImage, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_LEFT);
 				par.BoundingRectHeight = NIVision.imaqMeasureParticle(binaryImage, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_HEIGHT);
 				par.BoundingRectWidth = NIVision.imaqMeasureParticle(binaryImage, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_WIDTH);
-				particles.add(par);
+				if(bestParticle == null || Math.abs(par.BoundingRectHeight / par.BoundingRectWidth - ASPECT_RATIO) < Math.abs(bestParticle.BoundingRectHeight / bestParticle.BoundingRectWidth) - ASPECT_RATIO)
+				{
+					bestParticle = par;
+				}
+				//particles.add(par);
 	
 			}
-			particles.sort(null);
-
-
-			ParticleReport bestParticle = particles.elementAt(0);
-	    
-			double bestParticleMidpoint = bestParticle.BoundingRectLeft + bestParticle.BoundingRectWidth/2.0;
-			double bestParticleMidpointAimingCoordnates = pixelCoordnateToAimingCoordnate(bestParticleMidpoint, CAMERA_RESOLUTION_X);
-			return aimingCoordnateToAngle(bestParticleMidpointAimingCoordnates, VIEW_ANGLE);
+			//particles.sort(null);
+			double bestParticleMidpointX = bestParticle.BoundingRectLeft + bestParticle.BoundingRectWidth/2.0;
+			double bestParticleMidpointY = bestParticle.BoundingRectTop - bestParticle.BoundingRectHeight/2.0;
+			double bestParticleMidpointXAimingCoordnates = pixelCoordnateToAimingCoordnate(bestParticleMidpointX, CAMERA_RESOLUTION_X);
+			double bestParticleMidpointYAimingCoordnates = pixelCoordnateToAimingCoordnate(bestParticleMidpointY, CAMERA_RESOLUTION_Y);
+			return new NIVision.PointDouble(aimingCoordnateToAngle(bestParticleMidpointXAimingCoordnates, VIEW_ANGLE), aimingCoordnateToAngle(bestParticleMidpointYAimingCoordnates, VIEW_ANGLE));
 		
 		}
 		else
 		{
-			return 0.0;
+			return new NIVision.PointDouble(0.0, 0.0);
 		}
 	}
     public double pixelCoordnateToAimingCoordnate(double pixelCoordnate, double resolution)
