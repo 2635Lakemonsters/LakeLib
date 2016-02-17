@@ -31,14 +31,14 @@ public class SensorUnwrapper extends BaseSensor<Double>
 		previousAngle = null;
 	}
 	@Override
-	public Double sense() {
+	public Double sense(Object passThrough) {
 		if(previousAngle == null)
 		{
 			//Initialization
-			previousAngle = angleGetter.sense();
+			previousAngle = angleGetter.sense(passThrough);
 			return accumulator;
 		}
-		Double currentAngle = angleGetter.sense();
+		Double currentAngle = angleGetter.sense(passThrough);
 		Double delta = previousAngle - currentAngle;
 		SmartDashboard.putNumber("Delta", delta);
 		if(delta > jumpTolerance)
@@ -72,7 +72,7 @@ public class SensorUnwrapper extends BaseSensor<Double>
 	@Override
 	public double pidGet()
 	{
-		return this.sense();
+		return this.sense(null);
 	}
 	
 }

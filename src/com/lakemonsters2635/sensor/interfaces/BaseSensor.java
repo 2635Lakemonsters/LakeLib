@@ -18,5 +18,5 @@ public abstract class BaseSensor<OutputType> implements PIDSource
 	 * 
 	 * @return Sensed value
 	 */
-	public abstract OutputType sense();
+	public abstract OutputType sense(Object argument);
 }

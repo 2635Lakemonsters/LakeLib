@@ -4,16 +4,17 @@ import java.awt.Point;
 import java.util.Comparator;
 import java.util.Vector;
 
-import com.lakemonsters2635.sensor.interfaces.IOutput;
+import com.lakemonsters2635.sensor.interfaces.BaseSensor;
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.ColorMode;
 import com.ni.vision.NIVision.Image;
 import com.ni.vision.NIVision.ImageType;
 import com.ni.vision.NIVision.ShapeMode;
 
+import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class FindTargetAngleFromImage implements IOutput <NIVision.PointDouble, NIVision.Image>
+public class SensorTargetAngleFromImage extends BaseSensor <NIVision.PointDouble>
 {
 	
 	double CAMERA_RESOLUTION_X;
@@ -28,7 +29,7 @@ public class FindTargetAngleFromImage implements IOutput <NIVision.PointDouble, 
 	NIVision.ParticleFilterOptions2 filterOptions = new NIVision.ParticleFilterOptions2(0,0,1,1);
 	Image binaryImage;
 	
-	public FindTargetAngleFromImage(double CAMERA_RESOLUTION_X, double CAMERA_RESOLUTION_Y, double VIEW_ANGLE, double ASPECT_RATIO,
+	public SensorTargetAngleFromImage(double CAMERA_RESOLUTION_X, double CAMERA_RESOLUTION_Y, double VIEW_ANGLE, double ASPECT_RATIO,
 			NIVision.Range hueRange, NIVision.Range saturationRange, NIVision.Range valueRange, double particleAreaMinimum)
 	{
 		super();
@@ -64,8 +65,17 @@ public class FindTargetAngleFromImage implements IOutput <NIVision.PointDouble, 
 	};
 
 		@Override
-	public NIVision.PointDouble getOutput(Image image) 
+	public NIVision.PointDouble sense(Object objImage) 
 	{
+		NIVision.Image image = null;
+		try 
+		{
+			image = (NIVision.Image)objImage;
+		}
+		catch(ClassCastException ex)
+		{
+			ex.printStackTrace();
+		}
 		//Look at the color frame for colors that fit the range. Colors that fit the range will be transposed as a 1 to the binary frame.
 		NIVision.imaqColorThreshold(binaryImage, image, 255, ColorMode.HSV, HUE_RANGE, SAT_RANGE, VAL_RANGE);
 		//Filter out particles that are too small
@@ -114,6 +124,24 @@ public class FindTargetAngleFromImage implements IOutput <NIVision.PointDouble, 
     {
     	return aimingCoordnate * viewingAngle/2.0;
     }
+	@Override
+	public void setPIDSourceType(PIDSourceType pidSource)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public PIDSourceType getPIDSourceType()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public double pidGet()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 		
 }

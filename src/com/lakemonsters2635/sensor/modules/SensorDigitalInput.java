@@ -14,7 +14,7 @@ public class SensorDigitalInput extends BaseSensor<Boolean>
 	}
 
 	@Override
-	public Boolean sense()
+	public Boolean sense(Object unused)
 	{
 		return digitalInput.get();
 	}

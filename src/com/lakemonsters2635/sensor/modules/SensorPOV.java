@@ -16,7 +16,7 @@ public class SensorPOV extends BaseSensor<Integer>
 		this.joystick = joystick;
 	}
 	@Override
-	public Integer sense()
+	public Integer sense(Object unused)
 	{
 		return joystick.getPOV(POV);
 	}

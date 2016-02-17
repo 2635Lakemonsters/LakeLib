@@ -4,29 +4,27 @@ import com.lakemonsters2635.sensor.interfaces.BaseSensor;
 
 import edu.wpi.first.wpilibj.PIDSourceType;
 
-public class SensorDummy<OutputType> extends BaseSensor<OutputType>
+public class SensorScaler extends BaseSensor<Double>
 {
-	OutputType constant;
-	public SensorDummy(OutputType constant)
+	double scaler;
+	public SensorScaler(double scaler)
 	{
-		this.constant = constant;
+		this.scaler = scaler;
 	}
 	@Override
-	public OutputType sense(Object constant)
+	public Double sense(Object input)
 	{
-		
-		if(constant != null)
+		Double castInput = 0.0;
+		try
 		{
-			try
-			{
-				return (OutputType) constant;
-			}
-			catch(ClassCastException ex)
-			{
-				ex.printStackTrace();
-			}
+			castInput = (Double) input;
 		}
-		return this.constant;
+		catch(ClassCastException ex)
+		{
+			ex.printStackTrace();
+			System.err.println("SensorScaler: invalid input type. Must be the same as OutputType.");
+		}
+		return castInput * scaler;
 	}
 	@Override
 	public void setPIDSourceType(PIDSourceType pidSource)

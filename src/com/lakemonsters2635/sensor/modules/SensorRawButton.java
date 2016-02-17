@@ -16,7 +16,7 @@ public class SensorRawButton extends BaseSensor<Boolean>
 		this.joystick = joystick;
 	}
 	@Override
-	public Boolean sense()
+	public Boolean sense(Object unused)
 	{
 		return joystick.getRawButton(button);
 	}

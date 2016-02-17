@@ -128,7 +128,7 @@ public class SensorAngleFromCameraColorSense extends BaseSensor<Double>
 	}
 	
 	@Override
-	public synchronized Double sense() 
+	public synchronized Double sense(Object unused) 
 	{
 		return angleToTargetX;
 	}
@@ -234,8 +234,9 @@ public class SensorAngleFromCameraColorSense extends BaseSensor<Double>
 	public double pidGet()
 	{
 		// TODO Auto-generated method stub
-		return sense();
+		return sense(null);
 	}
+
 	
     
 }

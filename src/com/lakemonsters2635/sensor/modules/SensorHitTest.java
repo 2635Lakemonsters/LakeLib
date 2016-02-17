@@ -33,9 +33,9 @@ public class SensorHitTest extends BaseSensor<Boolean>
 
 
 	@Override
-	public Boolean sense()
+	public Boolean sense(Object passThrough)
 	{
-		Double sensedValue = sensor.sense();		
+		Double sensedValue = sensor.sense(passThrough);		
 		return sensedValue <= upperLimit && sensedValue >= lowerLimit; 
 	}
 

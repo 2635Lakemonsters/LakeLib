@@ -94,7 +94,7 @@ public class CompositeJoystick
 	 */
 	public Double getAxis(String axisName, Double modifier)
 	{
-		Double axisValue = axes.get(axisName).sense();
+		Double axisValue = axes.get(axisName).sense(null);
 		if(axesTransform.get(axisName) != null)
 		{
 			return axesTransform.get(axisName).operate(axisValue, modifier);
@@ -106,10 +106,10 @@ public class CompositeJoystick
 	 * @param axisName
 	 * @return
 	 */
-	public Double getAxis(String axisName)
+	public Double getAxis(String axisName, Object sensorModifier)
 	{
 		
-		return axes.get(axisName).sense();
+		return axes.get(axisName).sense(sensorModifier);
 	}
 	
 	/**
@@ -119,19 +119,19 @@ public class CompositeJoystick
 	 * @param modifier Input to the buttonTransform
 	 * @return Transformed value
 	 */
-	public Boolean getButton(String buttonName, Boolean modifier)
+	public Boolean getButton(String buttonName, Boolean modifier, Object sensorModifier)
 	{
 		//Return the transformed value from sense
-		Boolean buttonValue = buttons.get(buttonName).sense();
+		Boolean buttonValue = buttons.get(buttonName).sense(sensorModifier);
 		if(buttonsTransform.get(buttonName) != null)
 		{
 			return buttonsTransform.get(buttonName).operate(buttonValue, modifier);
 		}
 		return buttonValue;
 	}
-	public Boolean getButton(String buttonName)
+	public Boolean getButton(String buttonName, Object sensorModifier)
 	{
-		return buttons.get(buttonName).sense();
+		return buttons.get(buttonName).sense(sensorModifier);
 	}
 	/**
 	 * Returns the sensed POV after the operation has been applied to it. If no operation is specified then the raw value is returned.
@@ -140,18 +140,18 @@ public class CompositeJoystick
 	 * @param modifier Input to the POVTransform
 	 * @return Transformed value
 	 */
-	public Integer getPOV(String POVName, Integer modifier)
+	public Integer getPOV(String POVName, Integer modifier, Object sensorModifier)
 	{
-		Integer POVValue = POVs.get(POVName).sense();
+		Integer POVValue = POVs.get(POVName).sense(sensorModifier);
 		if(POVsTransform.get(POVName) != null)
 		{
 			return POVsTransform.get(POVName).operate(POVValue, modifier);
 		}
 		return POVValue;	
 	}
-	public Integer getPOV(String POVName)
+	public Integer getPOV(String POVName, Object sensorModifier)
 	{
-		return POVs.get(POVName).sense();
+		return POVs.get(POVName).sense(sensorModifier);
 	}
 }
 

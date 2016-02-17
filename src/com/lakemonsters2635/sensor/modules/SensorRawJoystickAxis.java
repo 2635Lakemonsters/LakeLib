@@ -16,7 +16,7 @@ public class SensorRawJoystickAxis extends BaseSensor<Double>
 		this.joystick = joystick;
 	}
 	@Override
-	public Double sense()
+	public Double sense(Object unused)
 	{
 		return joystick.getRawAxis(axis);
 	}
@@ -36,7 +36,7 @@ public class SensorRawJoystickAxis extends BaseSensor<Double>
 	public double pidGet()
 	{
 		// TODO Auto-generated method stub
-		return sense();
+		return sense(null);
 	}
 	
 }

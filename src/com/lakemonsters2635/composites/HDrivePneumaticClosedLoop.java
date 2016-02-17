@@ -43,7 +43,7 @@ public class HDrivePneumaticClosedLoop extends HDrivePneumatic
 			piston.actuate(true);
 			middleWheel.actuate(X);
 			//Drive from pid rather than from drive
-			pid.setSetpoint(setPointGet.sense());
+			pid.setSetpoint(setPointGet.sense(null));
 			pid.enable();
 			
 		}
