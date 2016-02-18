@@ -14,6 +14,7 @@ public class SensorOneShot extends BaseSensor<Object>
 
 	Object previousValue;
 	Object lowValue;
+	
 	public SensorOneShot(Object lowValue)
 	{
 		this.lowValue = lowValue;
