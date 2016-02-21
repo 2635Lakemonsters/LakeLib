@@ -14,7 +14,7 @@ public class ActuatorDummy<InputType> extends BaseActuator<InputType>
 	@Override
 	public boolean actuate(InputType magnitude)
 	{
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 

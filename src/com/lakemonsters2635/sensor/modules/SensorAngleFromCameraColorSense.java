@@ -227,13 +227,11 @@ public class SensorAngleFromCameraColorSense extends BaseSensor<Double>
 	@Override
 	public PIDSourceType getPIDSourceType()
 	{
-		// TODO Auto-generated method stub
 		return PIDSourceType.kDisplacement;
 	}
 	@Override
 	public double pidGet()
 	{
-		// TODO Auto-generated method stub
 		return sense(null);
 	}
 
