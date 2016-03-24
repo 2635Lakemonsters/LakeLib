@@ -21,9 +21,9 @@ public class SensorTargetAngleFromImage extends BaseSensor <NIVision.PointDouble
 	double CAMERA_RESOLUTION_Y;
 	double VIEW_ANGLE;
 	double ASPECT_RATIO;
-	NIVision.Range HUE_RANGE; //= new NIVision.Range(0, 5);	//Default hue range for yellow tote
-	NIVision.Range SAT_RANGE; //= new NIVision.Range(0, 10);	//Default saturation range for yellow tote
-	NIVision.Range VAL_RANGE; //= new NIVision.Range(250, 255);	//Default value range for yellow tote
+	public NIVision.Range HUE_RANGE; //= new NIVision.Range(0, 5);	//Default hue range for yellow tote
+	public NIVision.Range SAT_RANGE; //= new NIVision.Range(0, 10);	//Default saturation range for yellow tote
+	public NIVision.Range VAL_RANGE; //= new NIVision.Range(250, 255);	//Default value range for yellow tote
 	Double AREA_MINIMUM;
 	NIVision.ParticleFilterCriteria2 criteria[] = new NIVision.ParticleFilterCriteria2[1];
 	NIVision.ParticleFilterOptions2 filterOptions = new NIVision.ParticleFilterOptions2(0,0,1,1);
@@ -104,10 +104,10 @@ public class SensorTargetAngleFromImage extends BaseSensor <NIVision.PointDouble
 			}
 			//particles.sort(null);
 			double bestParticleMidpointX = bestParticle.BoundingRectLeft + bestParticle.BoundingRectWidth/2.0;
-			double bestParticleMidpointY = bestParticle.BoundingRectTop - bestParticle.BoundingRectHeight/2.0;
+			double bestParticleMidpointY = bestParticle.BoundingRectTop;
 			double bestParticleMidpointXAimingCoordnates = pixelCoordnateToAimingCoordnate(bestParticleMidpointX, CAMERA_RESOLUTION_X);
 			double bestParticleMidpointYAimingCoordnates = pixelCoordnateToAimingCoordnate(bestParticleMidpointY, CAMERA_RESOLUTION_Y);
-			return new NIVision.PointDouble(aimingCoordnateToAngle(bestParticleMidpointXAimingCoordnates, VIEW_ANGLE), aimingCoordnateToAngle(bestParticleMidpointYAimingCoordnates, VIEW_ANGLE));
+			return new NIVision.PointDouble(aimingCoordnateToAngle(bestParticleMidpointXAimingCoordnates, VIEW_ANGLE), bestParticleMidpointY);
 		
 		}
 		else
